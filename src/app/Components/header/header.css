@@ -4,7 +4,7 @@
 
 .navbar {
   position: fixed;
-  top: var(--sp-4);
+  top: var(--sp-5);
   left: 50%;
   z-index: var(--z-sticky);
 
@@ -32,7 +32,7 @@
 }
 
 .navbar--scrolled {
-  top: var(--sp-2);
+  top: var(--sp-3);
   background-color: var(--glass-strong);
   border-color: var(--border-soft);
   box-shadow: var(--shadow-lg);
@@ -204,14 +204,14 @@
 
 @media (max-width: 768px) {
   .navbar {
-    top: var(--sp-3);
+    top: var(--sp-4);
     width: calc(100% - var(--sp-6));
     max-width: none;
     padding: 0 var(--sp-3) 0 var(--sp-5);
   }
 
   .navbar--scrolled {
-    top: var(--sp-2);
+    top: var(--sp-3);
   }
 
   .navbar__toggle {
