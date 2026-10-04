@@ -1,0 +1,49 @@
+:host {
+  display: block;
+}
+
+.app-container {
+  position: relative;
+  z-index: var(--z-content);
+  isolation: isolate;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  width: 90vw;
+  max-width: var(--container-max);
+  min-height: 100dvh;
+  margin: 0 auto;
+
+  background-color: var(--background);
+  border-right: 1px solid var(--border-hairline);
+  border-left: 1px solid var(--border-hairline);
+  box-shadow: var(--shadow-xl);
+}
+
+app-header {
+  grid-row: 1;
+}
+
+main {
+  grid-row: 2;
+  margin-top: var(--header-height);
+  padding: var(--sp-8) var(--page-inset) var(--sp-16);
+}
+
+app-footer {
+  grid-row: 3;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    width: 100%;
+    max-width: none;
+    border-right: none;
+    border-left: none;
+  }
+
+  main {
+    padding: var(--sp-6) var(--sp-4) var(--sp-10);
+  }
+}

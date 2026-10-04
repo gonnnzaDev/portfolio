@@ -1,0 +1,68 @@
+<nav
+  class="navbar"
+  [class.navbar--scrolled]="scrolled()"
+  role="navigation"
+  aria-label="Main navigation"
+>
+  <div class="navbar__brand">
+    <a href="/" class="navbar__logo" aria-label="Go to home">gonnza</a>
+  </div>
+
+  <div class="navbar__overlay" [class.navbar__overlay--visible]="menuOpen()" (click)="closeMenu()" aria-hidden="true"></div>
+
+  <ul class="navbar__nav" id="navbar-menu" [class.navbar__nav--open]="menuOpen()" role="menubar">
+    <li class="navbar__item" role="none">
+      <a
+        href="#about"
+        class="navbar__link"
+        [class.navbar__link--active]="activeSection() === 'about'"
+        role="menuitem"
+        (click)="closeMenu(); scrollTo('about')"
+        >About Me</a
+      >
+    </li>
+    <li class="navbar__item" role="none">
+      <a
+        href="#projects"
+        class="navbar__link"
+        [class.navbar__link--active]="activeSection() === 'projects'"
+        role="menuitem"
+        (click)="closeMenu(); scrollTo('projects')"
+        >Projects</a
+      >
+    </li>
+  </ul>
+
+  <div class="navbar__actions">
+    <button
+      type="button"
+      class="navbar__theme"
+      (click)="toggleTheme()"
+      [attr.aria-label]="theme() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+      [attr.title]="theme() === 'dark' ? 'Light mode' : 'Dark mode'"
+    >
+
+      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+      </svg>
+
+      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+      </svg>
+    </button>
+
+    <button
+      class="navbar__toggle"
+      type="button"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="navbar-menu"
+      [attr.aria-label]="menuOpen() ? 'Close menu' : 'Open menu'"
+      (click)="toggleMenu()"
+    >
+      <span class="navbar__toggle-line" aria-hidden="true"></span>
+      <span class="navbar__toggle-line" aria-hidden="true"></span>
+      <span class="navbar__toggle-line" aria-hidden="true"></span>
+    </button>
+  </div>
+</nav>

@@ -1,0 +1,112 @@
+:host {
+  display: block;
+}
+
+.home {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: calc(100dvh - var(--header-height) - var(--sp-8));
+  padding: var(--sp-8) 0;
+  text-align: center;
+}
+
+.home__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-8);
+  width: 100%;
+  max-width: var(--container-narrow);
+}
+
+.home__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-5);
+}
+
+.home__greeting {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--accent);
+  animation: fade-in var(--dur-slow) var(--ease-out);
+}
+
+.home__name {
+  font-family: var(--font-serif);
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tighter);
+  color: var(--ink);
+  animation: rise-in var(--dur-slow) var(--ease-out) 60ms both;
+}
+
+.home__name-accent {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-weight: var(--fw-regular);
+  color: var(--accent);
+}
+
+.home__name-accent::after {
+  content: '';
+  display: inline-block;
+  width: 0.08em;
+  height: 0.7em;
+  margin-left: 0.04em;
+  background-color: var(--accent);
+  vertical-align: baseline;
+  animation: caret-blink 1.05s steps(1, end) infinite;
+}
+
+.home__role {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-snug);
+  color: var(--ink);
+  animation: rise-in var(--dur-slow) var(--ease-out) 140ms both;
+}
+
+.home__description {
+  max-width: 54ch;
+  font-size: var(--fs-base);
+  line-height: var(--lh-relaxed);
+  color: var(--ink-secondary);
+  animation: rise-in var(--dur-slow) var(--ease-out) 220ms both;
+}
+
+.home__cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-4);
+  margin-top: var(--sp-4);
+  animation: rise-in var(--dur-slow) var(--ease-out) 300ms both;
+}
+
+@media (max-width: 768px) {
+  .home {
+    min-height: calc(100dvh - var(--header-height) - var(--sp-6));
+  }
+
+  .home__role {
+    font-size: var(--fs-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .home__cta-group {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .home__cta-group .btn {
+    width: 100%;
+  }
+}
